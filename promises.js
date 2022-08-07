@@ -10,3 +10,15 @@ const fakeRequestPromise = (url) => {
 		}, delay);
 	});
 };
+
+const udemyResponse = fakeRequestPromise('udemy.com/course/my-course');
+
+console.log(udemyResponse);
+udemyResponse
+	.then(() => {
+		console.log('IT WORKED FOR UDEMY');
+		fakeRequestPromise('udemy.com/course/my-course/progress')
+			.then(() => console.log('STATUS RETRIEVED'))
+			.catch(() => console.log('STATUS NOT RETRIEVED'));
+	})
+	.catch(() => console.log('UDEMY TIMEOUT'));
