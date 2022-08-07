@@ -17,8 +17,7 @@ console.log(udemyResponse);
 udemyResponse
 	.then(() => {
 		console.log('IT WORKED FOR UDEMY');
-		fakeRequestPromise('udemy.com/course/my-course/progress')
-			.then(() => console.log('STATUS RETRIEVED'))
-			.catch(() => console.log('STATUS NOT RETRIEVED'));
+		return fakeRequestPromise('udemy.com/course/my-course/progress');
 	})
+	.then(() => console.log('STATUS RETRIEVED'))
 	.catch(() => console.log('UDEMY TIMEOUT'));
